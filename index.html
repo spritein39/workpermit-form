@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Work Permit Booking</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<style>
+body{
+font-family: Arial;
+padding:20px;
+background:#f5f5f5;
+}
+
+.container{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+}
+
+input,select,button{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+background:#06C755;
+color:white;
+border:none;
+font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Work Permit Booking</h2>
+
+<input id="name" placeholder="Contact Name">
+
+<input id="phone" placeholder="Phone">
+
+<input id="title" placeholder="Work Title">
+
+<select id="area">
+<option value="">Select Area</option>
+<option>Tank Farm</option>
+<option>Boiler</option>
+<option>Warehouse</option>
+</select>
+
+<input type="date" id="start">
+
+<input type="date" id="end">
+
+<button onclick="submitForm()">Submit</button>
+
+</div>
+
+<script>
+
+async function submitForm(){
+
+const data = {
+name:document.getElementById("name").value,
+phone:document.getElementById("phone").value,
+title:document.getElementById("title").value,
+area:document.getElementById("area").value,
+start:document.getElementById("start").value,
+end:document.getElementById("end").value
+};
+
+alert("Booking Submitted");
+
+}
+
+</script>
+
+</body>
+</html>
