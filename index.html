@@ -51,9 +51,11 @@ margin-top:20px;
 
 <h2>Work Permit Booking</h2>
 
+<form method="POST" action="https://script.google.com/macros/s/AKfycbxudk4x1zrLe4SgyppOrqHrm9ZGlVgKKX0DpU6nzT4XRnB2zKn-ERZtDaQvPwmEn-6f/exec">
+
 <label>Company</label>
 
-<select id="company" onchange="selectCompany()">
+<select name="company" onchange="selectCompany()" id="company">
 
 <option value="">Select Company</option>
 
@@ -63,24 +65,26 @@ margin-top:20px;
 </select>
 
 <label>Contact Name</label>
-<input id="name" readonly>
+<input name="name" id="name" readonly>
 
 <label>Phone</label>
-<input id="phone" readonly>
+<input name="phone" id="phone" readonly>
 
 <label>Work Title</label>
-<input id="title" placeholder="Work Title">
+<input name="title">
 
 <label>Work Area</label>
-<input id="area" placeholder="Work Area">
+<input name="area">
 
 <label>Proposed Date</label>
-<input type="date" id="date">
+<input type="date" name="date">
 
 <label>Time Slot</label>
-<select id="timeslot"></select>
+<select name="timeslot" id="timeslot"></select>
 
-<button onclick="submitForm()">Submit Booking</button>
+<button type="submit">Submit Booking</button>
+
+</form>
 
 </div>
 
@@ -151,34 +155,6 @@ select.appendChild(option);
 }
 
 generateTimeSlots();
-
-async function submitForm(){
-
-const data={
-
-company:document.getElementById("company").value,
-name:document.getElementById("name").value,
-phone:document.getElementById("phone").value,
-title:document.getElementById("title").value,
-area:document.getElementById("area").value,
-date:document.getElementById("date").value,
-timeslot:document.getElementById("timeslot").value
-
-};
-
-const API_URL="https://script.google.com/macros/s/AKfycbxudk4x1zrLe4SgyppOrqHrm9ZGlVgKKX0DpU6nzT4XRnB2zKn-ERZtDaQvPwmEn-6f/exec";
-
-await fetch(API_URL,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-});
-
-alert("Booking Submitted");
-
-}
 
 </script>
 
