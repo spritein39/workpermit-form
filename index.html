@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="utf-8">
+
 <title>Work Permit Booking</title>
 
 <style>
@@ -51,11 +53,12 @@ margin-top:20px;
 
 <h2>Work Permit Booking</h2>
 
-<form method="POST" action="https://script.google.com/macros/s/AKfycbxudk4x1zrLe4SgyppOrqHrm9ZGlVgKKX0DpU6nzT4XRnB2zKn-ERZtDaQvPwmEn-6f/exec">
+<form method="POST"
+action="https://script.google.com/macros/s/AKfycbxtjOhYPkeNScEC42_h8-dMzS_XD9NzHTBybmN4UHdok_u8q5WFpaNtHd4-pHnwsfCG/exec">
 
 <label>Company</label>
 
-<select name="company" onchange="selectCompany()" id="company">
+<select name="company" id="company" onchange="selectCompany()">
 
 <option value="">Select Company</option>
 
@@ -65,21 +68,27 @@ margin-top:20px;
 </select>
 
 <label>Contact Name</label>
+
 <input name="name" id="name" readonly>
 
 <label>Phone</label>
+
 <input name="phone" id="phone" readonly>
 
 <label>Work Title</label>
+
 <input name="title">
 
 <label>Work Area</label>
+
 <input name="area">
 
 <label>Proposed Date</label>
+
 <input type="date" name="date">
 
 <label>Time Slot</label>
+
 <select name="timeslot" id="timeslot"></select>
 
 <button type="submit">Submit Booking</button>
@@ -111,6 +120,7 @@ const code=document.getElementById("company").value;
 if(contractors[code]){
 
 document.getElementById("name").value=contractors[code].name;
+
 document.getElementById("phone").value=contractors[code].phone;
 
 }
@@ -130,11 +140,15 @@ String(h).padStart(2,"0")+":"+
 String(m).padStart(2,"0");
 
 let endMinute=m+15;
+
 let endHour=h;
 
 if(endMinute==60){
+
 endMinute=0;
+
 endHour++;
+
 }
 
 let endTime=
@@ -144,6 +158,7 @@ String(endMinute).padStart(2,"0");
 let option=document.createElement("option");
 
 option.value=startTime;
+
 option.text=startTime+" - "+endTime;
 
 select.appendChild(option);
@@ -159,4 +174,5 @@ generateTimeSlots();
 </script>
 
 </body>
+
 </html>
